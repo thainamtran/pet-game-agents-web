@@ -89,3 +89,7 @@ output/              Written by a pipeline run (and optional screenshots)
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Deploy to Render (free tier)
+
+This repo includes a `render.yaml` blueprint. In Render, choose **New > Blueprint**, connect this GitHub repo, and apply. It creates one free Node web service (`npm ci`, `npm start`, health check `/health`) in offline mock mode; `OPENAI_API_KEY` is optional and set in the Render dashboard. Free services sleep after ~15 minutes idle, so the first request takes about a minute.

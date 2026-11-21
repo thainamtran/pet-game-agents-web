@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pet-game-agents-web
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: PET_AGENTS_MODE
+        value: mock
+      - key: OPENAI_API_KEY
+        sync: false
