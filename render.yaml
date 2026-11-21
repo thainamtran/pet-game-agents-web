@@ -10,7 +10,7 @@ services:
     envVars:
       - key: NODE_VERSION
         value: "20"
-      - key: PET_AGENTS_MODE
-        value: mock
+      - key: LLM_MODE
+        value: auto
       - key: OPENAI_API_KEY
         sync: false
