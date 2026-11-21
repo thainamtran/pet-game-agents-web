@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Little Companion — pet-game-agents</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">game nuôi thú · multi-agent studio</p>
+        <h1>Little Companion</h1>
+        <p class="lede">
+          A crew of AI agents designs, codes, illustrates, and tests a pet-raising game.
+          Then you play it here in the browser.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="panel" id="pipeline-panel" aria-labelledby="pipeline-title">
+          <h2 id="pipeline-title">Build with agents</h2>
+          <form id="start-form" class="start-form">
+            <label>
+              Species
+              <select name="species" id="species">
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="bunny">Bunny</option>
+                <option value="dragon">Dragon</option>
+              </select>
+            </label>
+            <label>
+              Theme
+              <input
+                type="text"
+                name="theme"
+                id="theme"
+                value="cozy backyard companion"
+                maxlength="80"
+                autocomplete="off"
+              />
+            </label>
+            <label class="check">
+              <input type="checkbox" name="autoApprove" id="auto-approve" checked />
+              Auto-approve species &amp; theme (skip the decision prompt)
+            </label>
+            <div class="form-actions">
+              <button type="submit" id="start-btn">Start the crew</button>
+              <span id="run-status" class="status-pill" hidden></span>
+            </div>
+          </form>
+
+          <div id="decision-card" class="decision-card" hidden>
+            <h3>A major decision is needed</h3>
+            <p id="decision-question"></p>
+            <p id="decision-details" class="muted"></p>
+            <form id="decision-form">
+              <label>
+                Species
+                <input type="text" name="species" id="decision-species" required />
+              </label>
+              <label>
+                Theme
+                <input type="text" name="theme" id="decision-theme" required />
+              </label>
+              <button type="submit">Continue building</button>
+            </form>
+          </div>
+
+          <ol id="log" class="log" aria-live="polite"></ol>
+        </section>
+
+        <section class="panel game-panel" id="game-panel" aria-labelledby="game-title">
+          <h2 id="game-title">Play</h2>
+          <div id="game-placeholder" class="placeholder">
+            <p>The game appears here once the Tester signs off and the Manager stops the loop.</p>
+          </div>
+          <div id="game-root" hidden>
+            <div class="portrait-wrap">
+              <div id="sprite" class="sprite" aria-hidden="true"></div>
+              <pre id="ascii" class="ascii"></pre>
+            </div>
+            <p id="pet-meta" class="pet-meta"></p>
+            <div class="bars" id="bars"></div>
+            <p id="mood-line" class="muted"></p>
+            <div class="actions" id="actions">
+              <button type="button" data-action="feed">Feed</button>
+              <button type="button" data-action="play">Play</button>
+              <button type="button" data-action="sleep">Sleep</button>
+              <button type="button" data-action="wait">Wait</button>
+            </div>
+            <p id="game-message" class="game-message"></p>
+            <button type="button" id="restart-btn" class="ghost">Start a fresh pet</button>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Agents decide the gameplay. You only step in for major choices.
+          Mock mode is offline by default. MIT licensed.
+        </p>
+      </footer>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

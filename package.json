@@ -1,0 +1,23 @@
+{
+  "name": "pet-game-agents-web",
+  "version": "0.1.0",
+  "description": "Web app for a multi-agent crew that designs, codes, illustrates, and tests a pet-raising game.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agents",
+    "pet-game",
+    "game-nuoi-thu"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
